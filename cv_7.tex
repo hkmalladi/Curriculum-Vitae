@@ -1,0 +1,145 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% "ModernCV" CV and Cover Letter
+% LaTeX Template
+% Version 1.11 (19/6/14)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Xavier Danaux (xdanaux@gmail.com)
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+% Important note:
+% This template requires the moderncv.cls and .sty files to be in the same 
+% directory as this .tex file. These files provide the resume style and themes 
+% used for structuring the document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[11pt,a4paper,sans]{moderncv} % Font sizes: 10, 11, or 12; paper sizes: a4paper, letterpaper, a5paper, legalpaper, executivepaper or landscape; font families: sans or roman
+
+\moderncvstyle{classic} % CV theme - options include: 'casual' (default), 'classic', 'oldstyle' and 'banking'
+\moderncvcolor{blue} % CV color - options include: 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+
+\usepackage{lipsum} % Used for inserting dummy 'Lorem ipsum' text into the template
+
+\usepackage[scale=0.75]{geometry} % Reduce document margins
+%\setlength{\hintscolumnwidth}{3cm} % Uncomment to change the width of the dates column
+%\setlength{\makecvtitlenamewidth}{10cm} % For the 'classic' style, uncomment to adjust the width of the space allocated to your name
+
+%----------------------------------------------------------------------------------------
+%	NAME AND CONTACT INFORMATION SECTION
+%----------------------------------------------------------------------------------------
+
+\firstname{Hari Krishna} % Your first name
+\familyname{Malladi} % Your last name
+
+% All information in this block is optional, comment out any lines you don't need
+% \title{Curriculum Vitae}
+\address{3-5-267, Vithalwadi, Narayanaguda}{Hyderabad 500029}
+\mobile{+91 9945676016}
+\email{harikrishnamalladi.iisc@gmail.com}
+% \quote{"The whole is more than the sum of its parts." - Aristotle}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\makecvtitle % Print the CV title
+
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Work Experience}
+
+\cventry{February 2016--March 2017 and May 2018--Present}{Senior Software Engineer}{\textsc{Gwynniebee India Pvt. Ltd.}}{Bangalore, India}{}{
+Gwynniebee is an e-commerce startup which provides subscription-based clothing as a service. The company also has a multi-tenant support, known as CaaStle. I am a part of the Data-Driven Applications team, which focussed on search, recommendations and pricing. 
+\begin{enumerate}
+\item \textbf{Wearability:} This project deals with an improvement to the matching algorithm. In our context, matching is the problem which deals with what garments are to be shipped to which users and when, in order to satisfy the most number of users. A closed-form formula was replaced with a neural networks-based approach to compute the 'wearability', which is the probability that a user is going to wear the shipped garment. This neural network-based approach was put in production on a hadoop cluster after extensive testing and validation. This change in itself gave a 10\% lift in the overall propensity to wear, as compared to the previous formula.
+\item \textbf{Size Advisor Improvements} This work deals with the improvements done to a tool called size advisor, which advises a size to a user in a given brand, based on the user's history and the garment's attributes. One main improvement done was to prevent the tool from giving unsure recommendations in cases where a strong match is hard to find. This could be due to a lack of enough neighbours or any of the multitude of issues plaguing cold start, as we use collaborative recommendations. 
+\item \textbf{Demand Shaping in Recommendations:}This project dealt with using recommendations to shape the demand to better use the inventory. Lower utilized products are recommended to users to whom they match in relevance so that their utilization goes up.
+\item \textbf{Addition of Freshness to Recommendations:}Recommender systems inherently recommend the same products multiple times to the same user, irrespective of the user's interest in them. 'Fresh' recommenders change their products dynamically with time to avoid displaying the same content repeatedly. We prototyped one such system.
+\item \textbf{Work Related to the Back-End Events:}This work involved fixing broken parts of the load, view and click event workflow (using RabbitMQ), their integration into a common MySQL database and some first-level analytics.
+\item \textbf{Assortment Testing System:}Assortment Testing System (ATS) is a flavour of A/B testing wherein a certain portion of the inventory is shown only to a certain portion of the customer base. Primary contribution in this project involved the setting up of and deploying the ATS mechanism for the internal search engine.
+\item \textbf{Size Advisor API:}Size Advisor is a tool which recommends sizes to a user based on the ratings that they have given to previously ordered garments and from an 'anchor' brand and 'anchor' size that they pick. My contribution to the Size Advisor was at a systems level wherein we decreased the response time by several orders of magnitude by optimizing the response structure.
+\item \textbf{Demand-Supply Ratio V2:} Worked with the analytics team on getting a new formula for estimating demand and supply to production using parallel R code.
+\end{enumerate}
+}
+
+\cventry{March 2017--April 2018}{Lead Data Scientist}{\textsc{SpOvum Technologies (BendFlex Research and Development Pvt. Ltd.)}}{Bangalore, India}{}{
+SpOvum Technologies is an IISc-based startup which works in the biotechnology space. Our current product, RoboICSI, targets the IVF industry.
+\newline{}
+\textbf{RoboICSI:} This product is a novel addition to the ICSI (Intra-Cytoplasmic Sperm Injection) platform. It's a first-of-its-kind device, which ultimately aims to automate the entire process. We were a 4 member interdisciplinary team from IISc with a variety of backgrounds. This work eventually lead to a demonstration at ESHRE'2018 and a design registration.
+\newline{}
+Key deliverables:
+\begin{enumerate}
+\item \textbf{Automated QC of Consumables:} Automated QC mechanism using MATLAB and Procrustes analysis for performing QC of consumables. A later approach used a technique based on histograms (derived from a few observations made during the manufacturing process), which is fast enough to work on the fly, with over 80\% accuracy.
+\item \textbf{The Software Stack:} Design and development of the entire software stack, from the embedded code that controls the actuator to the UI using Qt.
+\item \textbf{Data and Events Pipeline:} An events mechanism using SQLite and python, using a custom built queuing system to capture data from the various devices deployed at various hospitals. This pipeline also collects data automatically, automating a lot of the doctor's workflow.
+\item \textbf{Automated Calibrations:} We replaced a state of the art linear actuator with a cheap hobby-grade motor. To get it to work at a microscopic level, it requires regular automated calibrations done using image and data processing.
+\item \textbf{Automated Workflow} Using an image stream from the microscope's camera and the RoboICSI actuator, the software autonomously manipulates the cells on the petri dish.
+\item \textbf{Motion Detection on Spermatozoa:} Motility is one of the best ways to figure out a sperm's health. An image processing based approach was developed which could do this by looking into a microscope.
+\end{enumerate}
+}
+
+
+\cventry{November 2014--February 2016}{Software Engineer}{\textsc{The MathWorks}}{Bangalore, India}{}{ Worked with the Simulink Design Verifier team, developing the verification and validation engines that power it. Primary contributions include the design of a new engine which combines the best of the existing engines with a novel communication mechanism between them.}
+%------------------------------------------------
+\cventry{2009--2010}{Intern}{\textsc{Advanced Systems Laboratory, DRDO}}{Hyderabad}{}{Worked on the non-realtime simulation of ballistic missiles, primarily the Agni-V ICBM.}
+%------------------------------------------------
+
+
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Education}
+
+\cventry{2010--2012}{Masters in Engineering}{Indian Institute of Science}{Bangalore}{}{}  % Arguments not required can be left empty
+\cventry{2006--2010}{Bachelor of Technology}{Jawaharlal Nehru Technological University}{Hyderabad}{}{}
+
+%----------------------------------------------------------------------------------------
+%	AWARDS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Academic Achievements}
+
+\cvitem{2010}{All India Rank 1 in GATE'10 in CS stream.}
+\cvitem{2009}{All India Rank 19 in GATE'09 in CS stream.}
+% \cvitem{2006--2010}{Topped over a dozen robotics contests during my undergraduate.}
+
+
+%----------------------------------------------------------------------------------------
+%	COMPUTER SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+% \section{Computer skills}
+
+% \cvitem{Languages}{C, OCaml, Python, UNIX shell, MATLAB, Java. }
+% \cvitem{Libraries}{OpenCL, OpenGL, OpenMP, CUDA.}
+% \cvitem{Operating Systems}{Windows, Linux and OS X. }
+% \cvitem{Hardware}{Arduino, Intel 8051, Raspberry Pi, Cubieboard, Beaglebone Black, Intel Galileo and a variety of sensors. }
+
+
+%----------------------------------------------------------------------------------------
+%	COMMUNICATION SKILLS SECTION
+%----------------------------------------------------------------------------------------
+
+%----------------------------------------------------------------------------------------
+%	INTERESTS SECTION
+%----------------------------------------------------------------------------------------
+
+\section{Interests}
+
+\renewcommand{\listitemsymbol}{-~} % Changes the symbol used for lists
+\cvitem{Travel}{Keen in history, architecture and wildlife, globetrotting is a passion, taking me across 15 countries.}
+\cvitem{DIY}{A DIY enthusiast and geek, having built and fiddled with a variety of gadgets and systems. I fiddle with Raspberry Pis, quadcopters and 3D printers in my spare time.}
+\end{document}
